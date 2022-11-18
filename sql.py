@@ -86,11 +86,17 @@ def main():
             );"""
 
     insert_users = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
-                        VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 001, 100);"""
+                        VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 000001, 0000001);"""
+    insert_users2 = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
+                        VALUES (1002, 'seconduser@lsu.edu', 'Jane', 'Doe', 000002, 0000002);"""
+    insert_classes = """INSERT INTO Class (Class_ID, Day, Time, Muscle_ID, Machine_ID, Sports_ID)
+                        VALUES (000003, 'Tuesday', '7pm', 01, 001, 0000003);"""
+    insert_classes2 = """INSERT INTO Class (Class_ID, Day, Time, Muscle_ID, Machine_ID, Sports_ID)
+                        VALUES (000004, 'Wednesday', '9pm', 02, 002, 0000004);"""    
     
-     insert_machine1 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
+    insert_machine1 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
                         VALUES (111, 'Treadmill', '2nd Floor', 08, 1234567);"""
-     insert_machine2 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
+    insert_machine2 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
                         VALUES (120, 'Dumbbells', '3rd Floor', 10, 1457839);"""
 
     
