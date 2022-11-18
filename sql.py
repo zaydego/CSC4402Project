@@ -24,6 +24,7 @@ def create_table(conn, create_table_sql):
 def insert_to_table(conn, insert_into):
     c = conn.cursor()
     c.execute(insert_into)
+    conn.commit()
 
 
 def main():
@@ -83,6 +84,9 @@ def main():
                 Muscle_ID integer,
                 FOREIGN KEY (Muscle_ID) REFERENCES Muscle (Muscle_ID)
             );"""
+
+    insert_users = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
+                        VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 001, 100);"""
     
     conn = create_connection("4402 Table.db")
     create_table(conn, users)
@@ -91,6 +95,7 @@ def main():
     create_table(conn, machine)
     create_table(conn, classes)
     create_table(conn, sports)
+    insert_to_table(conn, insert_users)
 
 
 def insert_records(name, db, records):
