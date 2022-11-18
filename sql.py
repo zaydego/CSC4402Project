@@ -81,13 +81,22 @@ def main():
 
     sports = """CREATE TABLE IF NOT EXISTS Sports (
                 Sports_ID integer PRIMARY KEY,
+                Sports_name text NOT NULL,
                 Muscle_ID integer,
                 FOREIGN KEY (Muscle_ID) REFERENCES Muscle (Muscle_ID)
-            );"""
+            );"""        
+
+    insert_sports = """INSERT INTO Sports (Sports_ID,Sports_name,Muscle_ID)
+                        VALUES (0000001, 'Basketball');"""
+    insert_to_table(conn,insert_sports)                    
+    
+    insert_sports2 = """INSERT INTO Sports (Sports_ID,Sports_name,Muscle_ID)
+                        VALUES (0000002, 'Tennis');"""
+    insert_to_table(conn,insert_sports2)
 
     insert_users = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
                         VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 001, 100);"""
-    
+
     conn = create_connection("4402 Table.db")
     create_table(conn, users)
     create_table(conn, staff)
