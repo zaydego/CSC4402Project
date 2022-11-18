@@ -81,6 +81,7 @@ def main():
 
     sports = """CREATE TABLE IF NOT EXISTS Sports (
                 Sports_ID integer PRIMARY KEY,
+                Sports_Name text,
                 Muscle_ID integer,
                 FOREIGN KEY (Muscle_ID) REFERENCES Muscle (Muscle_ID)
             );"""
@@ -89,6 +90,7 @@ def main():
                         VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 000001, 0000001);"""
     insert_users2 = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
                         VALUES (1002, 'seconduser@lsu.edu', 'Jane', 'Doe', 000002, 0000002);"""
+
     insert_classes = """INSERT INTO Class (Class_ID, Day, Time, Muscle_ID, Machine_ID, Sports_ID)
                         VALUES (000003, 'Tuesday', '7pm', 01, 001, 0000003);"""
     insert_classes2 = """INSERT INTO Class (Class_ID, Day, Time, Muscle_ID, Machine_ID, Sports_ID)
@@ -98,6 +100,23 @@ def main():
                         VALUES (111, 'Treadmill', '2nd Floor', 08, 1234567);"""
     insert_machine2 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
                         VALUES (120, 'Dumbbells', '3rd Floor', 10, 1457839);"""
+
+    insert_staff = """INSERT INTO Staff (Staff_ID, Title, Maintains, Class_ID, Sports_ID)
+                        VALUES (00001, 'Manager', '888', 0000001, 1000000); """
+
+    insert_staff_2 = """INSERT INTO Staff (Staff_ID, Title, Maintains, Class_ID, Sports_ID)
+                        VALUES (00002, 'Staff', '999', 000002, 1000001);"""
+
+    insert_sports = """INSERT INTO Sports (Sports_ID,Sports_Name,Muscle_ID)
+                        VALUES (0000001, 'Basketball', 123);"""                   
+    
+    insert_sports2 = """INSERT INTO Sports (Sports_ID,Sports_Name,Muscle_ID)
+                        VALUES (0000002, 'Tennis', 124);"""
+    
+    insert_muscle = """INSERT INTO muscle (Muscle_ID, Muscle_Name, Category)
+                        VALUES(01, "Bicep", "Arms");"""
+    insert_muscle_2 = """INSERT INTO muscle (Muscle_ID, Muscle_Name, Category)
+                        VALUES(02, "Tricep", "Arms");"""
 
     
     conn = create_connection("4402 Table.db")
@@ -113,6 +132,12 @@ def main():
     insert_to_table(conn, insert_classes2)
     insert_to_table(conn, insert_machine1)
     insert_to_table(conn, insert_machine2)
+    insert_to_table(conn, insert_staff)
+    insert_to_table(conn, insert_staff_2)
+    insert_to_table(conn, insert_sports) 
+    insert_to_table(conn, insert_sports2)
+    insert_to_table(conn, insert_muscle)
+    insert_to_table(conn, insert_muscle_2)
     
 
 
