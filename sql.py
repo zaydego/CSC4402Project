@@ -88,12 +88,6 @@ def main():
     insert_users = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
                         VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 001, 100);"""
     
-     insert_machine1 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
-                        VALUES (111, 'Treadmill', '2nd Floor', 08, 1234567);"""
-     insert_machine2 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
-                        VALUES (120, 'Dumbbells', '3rd Floor', 10, 1457839);"""
-
-    
     conn = create_connection("4402 Table.db")
     create_table(conn, users)
     create_table(conn, staff)
@@ -102,9 +96,8 @@ def main():
     create_table(conn, classes)
     create_table(conn, sports)
     insert_to_table(conn, insert_users)
-    insert_to_table(conn, insert_machine1)
-    insert_to_table(conn, insert_machine2)
-    
+    insert_to_table(conn, insert_staff)
+    insert_to_table(conn, insert_staff_2)
 
 
 def insert_records(name, db, records):
