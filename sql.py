@@ -108,6 +108,9 @@ def main():
     create_table(conn, classes)
     create_table(conn, sports)
     insert_to_table(conn, insert_users)
+    insert_to_table(conn, insert_users2)
+    insert_to_table(conn, insert_classes)
+    insert_to_table(conn, insert_classes2)
     insert_to_table(conn, insert_machine1)
     insert_to_table(conn, insert_machine2)
     
