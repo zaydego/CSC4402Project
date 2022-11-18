@@ -88,6 +88,11 @@ def main():
     insert_users = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
                         VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 001, 100);"""
     
+    insert_muscle = """INSERT INTO muscle (Muscle_ID, Muscle_Name, Category)
+                        VALUES(01, Bicep, Arms);"""
+    insert_muscle_2 = """INSERT INTO muscle (Muscle_ID, Muscle_Name, Category)
+                        VALUES(02, Tricep, Arms);"""
+    
     conn = create_connection("4402 Table.db")
     create_table(conn, users)
     create_table(conn, staff)
@@ -96,6 +101,8 @@ def main():
     create_table(conn, classes)
     create_table(conn, sports)
     insert_to_table(conn, insert_users)
+    insert_to_table(conn, insert_muscle)
+    insert_to_table(conn, insert_muslce_2)
 
 
 def insert_records(name, db, records):
