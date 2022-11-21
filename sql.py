@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+import for_pandas
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -87,14 +88,14 @@ def main():
             );"""
 
     insert_users = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
-                        VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 000001, 0000001);"""
+                        VALUES (1001, 'firstuser@lsu.edu', 'John', 'Doe', 100001, 1000001);"""
     insert_users2 = """INSERT INTO Users (User_ID, Email, First_Name, Last_Name, Class_ID, Sports_ID)
-                        VALUES (1002, 'seconduser@lsu.edu', 'Jane', 'Doe', 000002, 0000002);"""
+                        VALUES (1002, 'seconduser@lsu.edu', 'Jane', 'Doe', 100002, 1000002);"""
 
     insert_classes = """INSERT INTO Class (Class_ID, Day, Time, Muscle_ID, Machine_ID, Sports_ID)
-                        VALUES (000003, 'Tuesday', '7pm', 01, 001, 0000003);"""
+                        VALUES (100001, 'Tuesday', '7pm', 01, 101, 1000003);"""
     insert_classes2 = """INSERT INTO Class (Class_ID, Day, Time, Muscle_ID, Machine_ID, Sports_ID)
-                        VALUES (000004, 'Wednesday', '9pm', 02, 002, 0000004);"""    
+                        VALUES (100002, 'Wednesday', '9pm', 02, 102, 1000004);"""    
     
     insert_machine1 = """INSERT INTO Machine (Machine_ID, Machine_Name, Location, Muscle_ID, Sports_ID)
                         VALUES (111, 'Treadmill', '2nd Floor', 08, 1234567);"""
@@ -102,16 +103,16 @@ def main():
                         VALUES (120, 'Dumbbells', '3rd Floor', 10, 1457839);"""
 
     insert_staff = """INSERT INTO Staff (Staff_ID, Title, Maintains, Class_ID, Sports_ID)
-                        VALUES (00001, 'Manager', '888', 0000001, 1000000); """
+                        VALUES (10001, 'Manager', '888', 1000001, 1000000); """
 
     insert_staff_2 = """INSERT INTO Staff (Staff_ID, Title, Maintains, Class_ID, Sports_ID)
-                        VALUES (00002, 'Staff', '999', 000002, 1000001);"""
+                        VALUES (10002, 'Staff', '999', 100002, 1000001);"""
 
     insert_sports = """INSERT INTO Sports (Sports_ID,Sports_Name,Muscle_ID)
-                        VALUES (0000001, 'Basketball', 123);"""                   
+                        VALUES (1000001, 'Basketball', 123);"""                   
     
     insert_sports2 = """INSERT INTO Sports (Sports_ID,Sports_Name,Muscle_ID)
-                        VALUES (0000002, 'Tennis', 124);"""
+                        VALUES (1000002, 'Tennis', 124);"""
     
     insert_muscle = """INSERT INTO muscle (Muscle_ID, Muscle_Name, Category)
                         VALUES(01, "Bicep", "Arms");"""
@@ -138,12 +139,39 @@ def main():
     insert_to_table(conn, insert_sports2)
     insert_to_table(conn, insert_muscle)
     insert_to_table(conn, insert_muscle_2)
-    
+    using_pandas(conn)
 
 
 def insert_records(name, db, records):
     df = pd.DataFrame(records)
     df.to_sql(name, db, if_exists= 'replace', index = False)
+
+def using_pandas(db):
+    df = pd.DataFrame(for_pandas.machines)
+    df.columns = ['Machine_ID', 'Machine_Name', 'Location', 'Muscle_ID', 'Sports_ID']
+    df.to_sql('Machine', db, if_exists='append', index = False)
+
+    df = pd.DataFrame(for_pandas.muscles)
+    df.columns = ['Muscle_ID', 'Muscle_Name', 'Category']
+    df.to_sql('Muscle', db, if_exists='append', index = False)
+
+    df = pd.DataFrame(for_pandas.sports)
+    df.columns = ['Sports_ID','Sports_Name','Muscle_ID']
+    df.to_sql('Sports', db, if_exists='append', index = False)
+
+    df = pd.DataFrame(for_pandas.staffs)
+    df.columns = ['Staff_ID', 'Title', 'Maintains', 'Class_ID', 'Sports_ID']
+    df.to_sql('Staff', db, if_exists='append', index = False)
+
+    df = pd.DataFrame(for_pandas.users)
+    df.columns = ['User_ID', 'Email', 'First_Name', 'Last_Name', 'Class_ID', 'Sports_ID']
+    df.to_sql('Users', db, if_exists='append', index = False)
+
+    df = pd.DataFrame(for_pandas.classes)
+    df.columns = ['Class_ID', 'Day', 'Time', 'Muscle_ID', 'Machine_ID', 'Sports_ID']
+    df.to_sql('Class', db, if_exists='append', index = False)
+
+    db.commit()
 
 if __name__ == '__main__':
     main()
