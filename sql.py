@@ -109,10 +109,10 @@ def main():
                         VALUES (10002, 'Staff', '999', 100002, 1000001);"""
 
     insert_sports = """INSERT INTO Sports (Sports_ID,Sports_Name,Muscle_ID)
-                        VALUES (1000001, 'Basketball', 123);"""                   
+                        VALUES (1000001, 'Basketball', 12);"""                   
     
     insert_sports2 = """INSERT INTO Sports (Sports_ID,Sports_Name,Muscle_ID)
-                        VALUES (1000002, 'Tennis', 124);"""
+                        VALUES (1000002, 'Tennis', 12);"""
     
     insert_muscle = """INSERT INTO muscle (Muscle_ID, Muscle_Name, Category)
                         VALUES(01, "Bicep", "Arms");"""

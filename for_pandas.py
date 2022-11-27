@@ -37,7 +37,20 @@ users = [
     [1009, 'user9@lsu.edu', 'Jorge', 'Dan', 100009, 1000009],
     [1010, 'user10@lsu.edu', 'Jackie', 'Dope', 100010, 1000010],
     [1011, 'user11@lsu.edu', 'James', 'Derry', 100011, 1000011],
-    [1012, 'user12@lsu.edu', 'Jucks', 'Dork', 100012, 1000012]
+    [1012, 'user12@lsu.edu', 'Jucks', 'Dork', 100012, 1000012],
+    [1013, 'onethirduser@lsu.edu', 'Jon', 'Doe', 100003, 1000003],
+    [1014, 'onefourthuser@lus.edu', 'Macie', 'Jane', 100004, 1000004],
+    [1015, 'onefifthuser@lsu.edu', 'Jacklyn', 'Deef', 100005, 1000005],
+    [1016, 'onesixthuser@lsu.edu', 'Joseph', 'Mulan', 100006, 1000006],
+    [1017, 'oneuser7@lsu.edu', 'Jamien', 'Doo', 100007, 1000007],
+    [1018, 'oneuser8@lsu.edu', 'Jose', 'Dill', 100008, 1000008],
+    [1019, 'oneuser9@lsu.edu', 'Jonathan', 'Dan', 100009, 1000009],
+    [1020, 'twouser10@lsu.edu', 'Jace', 'Dope', 100010, 1000010],
+    [1021, 'twouser11@lsu.edu', 'Jameis', 'Derry', 100011, 1000011],
+    [1022, 'twouser12@lsu.edu', 'Jim', 'Dork', 100012, 1000012],
+    [1023, 'twouser13@lsu.edu', 'Junkie', 'Dope', 100010, 1000010],
+    [1024, 'twouser14@lsu.edu', 'Jarrick', 'Derry', 100011, 1000011],
+    [1025, 'twouser15@lsu.edu', 'Janey', 'Dork', 100012, 1000012]
         ]
 
 #fill in
@@ -58,16 +71,16 @@ staffs = [
 
 #fill in
 classes = [
-    [100003, 111, 'Monday', '7PM', 1000001, 10],
-    [100004, 112, 'Tuesday', '1PM', 1000002, 11],
-    [100005, 103, 'Wednesday', '4PM', 1000003, 1],
-    [100006, 104, 'Thursday', '8AM', 1000004, 2],
-    [100007, 105, 'Friday', '8PM', 1000005, 3],
-    [100008, 106, 'Monday', '7PM', 1000006, 1],
-    [100009, 107, 'Tuesday', '3PM', 1000007, 5],
-    [100010, 108, 'Thursday', '12PM', 1000008, 6],
-    [100011, 109, 'Monday', '9PM', 1000009, 10],
-    [100012, 101, 'Wednesday', '5PM', 1000010, 7]
+    [100003, 'Monday', '7PM', 3, 103, 1000001],
+    [100004, 'Tuesday', '1PM',4, 104, 1000002],
+    [100005, 'Wednesday', '4PM',5, 105, 1000003],
+    [100006, 'Thursday', '8AM',6, 106, 1000004],
+    [100007, 'Friday', '8PM',7, 107, 1000005],
+    [100008, 'Monday', '7PM',8, 108, 1000006],
+    [100009, 'Tuesday', '3PM',9, 109, 1000007],
+    [100010, 'Thursday', '12PM',10, 110, 1000008],
+    [100011, 'Monday', '9PM',11, 111, 1000009],
+    [100012, 'Wednesday', '5PM',12, 112, 1000010]
 ]
 
 #fill in
